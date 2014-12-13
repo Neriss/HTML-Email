@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Really Simple HTML Email Template</title>
+<style>
+/* -------------------------------------
+		GLOBAL
+------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.6;
+}
+
+img {
+	max-width: 100%;
+}
+
+table.three { max-width: 130px; }
+table.six { max-width: 280px; }
+table.twelve { max-width: 580px; }
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	width: 100%!important;
+	height: 100%;
+}
+
+
+tr td {
+	padding: 0;
+}
+
+/* -------------------------------------
+		ELEMENTS
+------------------------------------- */
+a {
+	color: #2ba6cb;
+}
+
+.btn-primary a,
+.btn-secondary a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.btn-primary {
+	text-decoration: none;
+	color: #FFF;
+	background-color: #2ba6cb;
+	padding: 8px 0;
+	width: 50%;
+	line-height: 2;
+	font-weight: bold;
+	margin-right: 10px;
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	border-radius: 25px;
+}
+
+.last {
+	margin-bottom: 0;
+}
+
+.first {
+	margin-top: 0;
+}
+
+
+/* -------------------------------------
+		BODY
+------------------------------------- */
+table.body-wrap {
+	width: 100%;
+	padding: 20px;
+}
+
+table.body-wrap .container {
+	border: 1px solid #f0f0f0;
+}
+
+
+/* -------------------------------------
+		FOOTER
+------------------------------------- */
+table.footer-wrap {
+	width: 100%;	
+	clear: both!important;
+}
+
+.footer-wrap .container p {
+	font-size: 12px;
+	color: #666;
+	
+}
+
+table.footer-wrap a {
+	color: #999;
+}
+
+
+/* -------------------------------------
+		TYPOGRAPHY
+------------------------------------- */
+h1, h2, h3, h4, h5 {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	line-height: 1.1;
+	margin-bottom: 15px;
+	color: #000;
+	/*margin: 40px 0 10px;*/
+	line-height: 1.2;
+	font-weight: 200;
+}
+
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 28px;
+}
+h3 {
+	font-size: 22px;
+}
+h4 {
+	font-size: 16px;
+}
+h5 {
+	font-size: 12px;
+}
+
+p, ul, ol {
+	margin-bottom: 10px;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+ul li, ol li {
+	margin-left: 5px;
+	list-style-position: inside;
+}
+
+/* ---------------------------------------------------
+		RESPONSIVENESS
+		Nuke it from orbit. It's the only way to be sure.
+------------------------------------------------------ */
+
+/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+.container {
+	display: block!important;
+	max-width: 600px!important;
+	margin: 0 auto!important; /* makes it centered */
+	clear: both!important;
+}
+
+/* Set the padding on the td rather than the div for Outlook compatibility */
+.body-wrap .container {
+	padding: 20px;
+}
+
+/* This should also be a block element, so that it will fill 100% of the .container */
+.content {
+	max-width: 600px;
+	margin: 0 auto;
+	display: block;
+}
+
+/* Let's make sure tables in the content area are 100% wide */
+.content table {
+	width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .btn-primary {
+    margin-bottom: 20px;
+}
+
+  table img {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  table center {
+    min-width: 0 !important;
+  }
+
+  table .container {
+    width: 95% !important;
+  }
+
+  table .row {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  table .wrapper {
+    display: block !important;
+    padding-right: 0 !important;
+  }
+
+  table .columns,
+  table .column {
+    table-layout: fixed !important;
+    float: none !important;
+    width: 100% !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: block !important;
+  }
+
+  table .wrapper.first .columns,
+  table .wrapper.first .column {
+    display: table !important;
+  }
+
+  table.six.columns.last {
+  	margin-bottom: 20px;
+  }
+
+  td.one.sub-columns {
+  	padding-right: 15px;
+  }
+
+  table.three { max-width: 130px !important; }
+  
+  table.six { 
+  	table-layout: fixed !important;
+  	float: none !important;
+  	max-width: 100% !important; 
+  	display: block !important;
+  	padding-right: 0px !important;
+  	padding-left: 0px !important; 
+  }
+  
+  table.twelve { width: 100% !important; }
+
+  table.twelve img {
+  	float: left;
+  	margin-bottom: 20px;
+  }
+
+  table table.columns td.expander {
+    width: 1px !important;
+  }
+
+  table .right-text-pad,
+  table .text-pad-right {
+    padding-left: 10px !important;
+  }
+
+  table .left-text-pad,
+  table .text-pad-left {
+    padding-right: 10px !important;
+  }
+
+  table .hide-for-small,
+  table .show-for-desktop {
+    display: none !important;
+  }
+
+  table .show-for-small,
+  table .hide-for-desktop {
+    display: inherit !important;
+  }
+}
+
+</style>
+</head>
+
+<body bgcolor="#f6f6f6">
+
+<!-- body -->
+<table class="body-wrap">
+	<tr>
+		<td></td>
+		<td class="container" bgcolor="#FFFFFF">
+
+			<!-- content -->
+			<div class="content">
+				<table class="twelve columns">
+					<tr>
+						<td class="six sub-columns last" style="text-align:right; vertical-align:middle;">
+							<img src="http://nerissamartin.com/wp-content/uploads/2014/12/logoplace2.jpg">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h1>Hi There!</h1>
+							<p>You ain't got no kind of feeling inside / I got something that'll sho nuff set yo' stuff on fire / You refuse to put anything before your pride / What I got will knock your pride aside.</p> 
+							<P>EVERYBODY, NOW: Tell me something good / Tell me that you love me, yeah / Tell me something good / Tell me that you like it, yeah.</p>
+							<p>Check out our news and events below.</p>
+						</td>
+					</tr>
+				</table>
+				<table class="row">
+					<tr>
+						<td class="wrapper" style="display:block">
+							<table class="six columns">
+								<tr>
+									<td>
+										<h2>News</h2>
+										<p>Check out this hot blog post / article just published about / by us.</p>
+									</td>
+								</tr>
+								<tr>
+									<td class="btn-primary">
+										<a href="http://twitter.com/home?status=Check out this article published by / about @yourname">Tweet This!</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td class="wrapper last">
+							<table class="six columns">
+								<tr>
+									<td>
+										<h2>Events</h2>
+										<p>We're having an event! Oh, you should come! </p>
+										<p>Choose your calendar below to add this event or <a href="registerlink">click here</a> to register.</p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<table class="six columns last">
+											<tr>
+												<td class="one sub-columns">
+													<a href="http://blog.hubspot.com/marketing/calendar-invites-ical-outlook-google"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/gdoutlook.png" alt="" /></a>
+												</td>
+												<td class="one sub-columns">
+													<a href="http://blog.hubspot.com/marketing/calendar-invites-ical-outlook-google"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/gdgmail.png" alt="" /></a>
+												</td>
+												<td class="one sub-columns">
+													<a href="http://blog.hubspot.com/marketing/calendar-invites-ical-outlook-google"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/gdicalendar.png" alt="" /></a>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+				<table class="twelve columns last">
+					<tr>
+						<td>
+							<h4>Until Next Time, 
+							<br />
+							<a href="#">The Team</a></h4>
+						</td>
+					</tr>
+				</table>
+				<table class="three columns last">
+					<tr>
+						<td class="one sub-columns">
+							<a href="#"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/ftwitter.png"></a>
+						</td>										
+						<td class="one sub-columns">
+							<a href="#"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/fgoogle.png"></a>
+						</td>
+						<td class="one sub-columns last">
+							<a href="#"><img src="http://nerissamartin.com/wp-content/uploads/2014/12/ffacebook.png"></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!-- /content -->
+	
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /body -->
+
+<!-- footer -->
+<table class="footer-wrap">
+	<tr>
+		<td></td>
+		<td class="container">
+			
+			<!-- content -->
+			<div class="content">
+				<table>
+					<tr>
+						<td align="center">
+							<p>Remember that time you signed up for our <a href="#">emails</a> on our <a href="#">website</a>? Well we do. Hence why you're getting this message. If you'd like to unsubscribe, then by all means <a href="unsubscribelink">please do</a>. We'll be a little sad but you can always come back! We promise.</p>
+							<p>Copyright &#9400 2014</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!-- /content -->
+			
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /footer -->
+
+</body>
+</html>
